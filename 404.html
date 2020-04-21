@@ -1,23 +1,37 @@
-- var top_img = theme.error_404.background || theme.default_top_img
-- var bg_img = `background-image: url(${top_img})`
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
 
-doctype html
-html(lang=config.language data-theme=theme.display_mode)
-  head
-    include includes/head.pug
-  body
-    if theme.fireworks && theme.fireworks.enable
-      canvas.fireworks
+<head>
+	<meta charset="UTF-8">
+	<title>纵饮孤独 --404</title>
+	<meta name="keywords" content="纵饮孤独,纵饮孤独博客,zygd,zygds,百年孤独,html,css,python,jave,前段,安全，zongyingudu" />
+	<meta name="description" content="纵饮孤独，程序员的世界是孤独的，这个平台让我们聚集在一起纵饮百年孤独" />
+	<link rel="icon" type="image/png" href="/img/favicon.png">
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="generator" content="Hexo 4.2.0"></head>
 
-    include includes/mobile-sidebar/index.pug
+<body>
+	<script language="JavaScript" type="text/javascript">
+		function Redirect() {
+			window.location = "../";
+		}
+		setTimeout('Redirect()', 1500); 
+	</script>
+	<table width="723" height="392" border="0" background="https://zygds.gitee.io/cdn/img/icon/404.gif" align="center">
+		<tr>
+			<td height="180" colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="128" height="206" valign="top">&nbsp;</td>
+			<td width="585" valign="top" style=" line-height:180%">
+				<font color="#FF0000">对不起，无法访问该网站，可能是以下原因之一：</font> <br>
+				1、该网站已经关闭；
+				<br>2、该网站正在维护中；
+				<br>3、该网站目前不允许外网访问；
+				<br>4、您输入域名地址时有误。
+			</td>
+		</tr>
+	</table>
+</body>
 
-    nav#nav.error-no-found(style=bg_img)
-      include includes/header/header.pug
-      #error_info.is-center
-        h1#error_title= '404'
-        #error_subtitle= theme.error_404.subtitle
-    include includes/rightside.pug
-    include includes/search/index.pug
-    each item in theme.CDN_USE.js
-      script(src=url_for(item))
-    include includes/additional-js.pug
+</html>
