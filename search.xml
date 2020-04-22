@@ -8,7 +8,7 @@
       <link href="/%E5%A3%B0%E6%98%8E/"/>
       <url>/%E5%A3%B0%E6%98%8E/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>你的仓库静态页面是master分区<br>你的所有文件在backup分区<br>标注了TODO的是需要修改的地方</p><p>帮你调好不是因为收了你的钱，而是因为帮了倒忙<br>总之呢，还是建议你：md文档得备份，不要用主机搭建git环境，根目录需要备份也就是/home/blog</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       
       
       
