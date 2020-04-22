@@ -2505,7 +2505,7 @@ figure.gallery-group .gallery-group-name:after {
   transition: all 0.5s;
 }
 #nav.full_page {
-  height: 400px;
+  height: 100vh;
 }
 #nav.full_page #site-info {
   position: absolute;
