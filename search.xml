@@ -5,12 +5,18 @@
     
     <entry>
       <title>tests</title>
-      <link href="/tests/"/>
-      <url>/tests/</url>
+      <link href="/%E4%BD%BF%E7%94%A8Python%E5%8F%91%E9%80%81QQ%E4%BF%A1%E6%81%AF/"/>
+      <url>/%E4%BD%BF%E7%94%A8Python%E5%8F%91%E9%80%81QQ%E4%BF%A1%E6%81%AF/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><pre><code>闲话少说，直接上代码本文在csdn的链接：[csdn](https://blog.csdn.net/wsad861512140/article/details/105410434)</code></pre><p>import win32gui<br>import win32con<br>import win32clipboard as w </p><p>class QQMessageSend:<br>    def send_message(self,msg):<br>        # 窗口名字，就是备注名<br>        name = “”<br>        # 将测试消息复制到剪切板中<br>        w.OpenClipboard()<br>        w.EmptyClipboard()<br>        w.SetClipboardData(win32con.CF_UNICODETEXT, msg)<br>        w.CloseClipboard()<br>        # 获取窗口句柄<br>        handle = win32gui.FindWindow(None, name)<br>        # 填充消息<br>        win32gui.SendMessage(handle, 770, 0, 0)<br>        # 回车发送消息<br>        win32gui.SendMessage(handle, win32con.WM_KEYDOWN, win32con.VK_RETURN, 0) </p><pre><code>def main(self):     # 消息内容     msg = &apos;Hello&apos;     # 循环发送     for i in range(30):         self.send_message(msg) </code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    qq_message_send = QQMessageSend()<br>    qq_message_send.main() </p><p>纯属娱乐，可能带有封号的风险，慎用！！<br>版权声明：如无特殊说明，文章均为本站原创，转载请注明出处</p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> python教学 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -37,12 +43,18 @@
     
     <entry>
       <title>test</title>
-      <link href="/test/"/>
-      <url>/test/</url>
+      <link href="/%E3%80%90python+selenium%E3%80%91%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86%E9%9D%92%E6%9E%9C%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F/"/>
+      <url>/%E3%80%90python+selenium%E3%80%91%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86%E9%9D%92%E6%9E%9C%E6%95%99%E5%8A%A1%E7%B3%BB%E7%BB%9F/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文在csdn的的链接：[csdn]（<a href="https://blog.csdn.net/wsad861512140/article/details/105573549）" target="_blank" rel="noopener external nofollow noreferrer">https://blog.csdn.net/wsad861512140/article/details/105573549）</a><br>    1.首先介绍需要的环境</p><blockquote><p>在cmd中<br>pip install selenium，紧接着安装Chromedriver或者Firefoxdriver，再添加环境变量。</p><p>这里主要使用Webdriver库<br>    2.直接切入主题，上代码<br>from selenium import webdriver<br>from aip import AipOcr<br>from PIL import Image<br>import time<br>import os<br>import re</p></blockquote><p>url= r’<a href="http://xk.csust.edu.cn/&#39;" target="_blank" rel="noopener external nofollow noreferrer">http://xk.csust.edu.cn/&#39;</a><br>p_path1=r”D:\test1.png”<br>p_path2=r”D:\test2.png”</p><p>def DownValidataCode(p_path1,p_path2):    #获取验证码图片<br>    time.sleep(3)<br>    drive.get_screenshot_as_file(p_path1)  #网页截图<br>    img = Image.open(p_path1)              #利用Image库将验证码截取<br>    box = (307, 339, 428, 391)             #通过Photoshop可以看到验证码的像素区域范围<br>    im = img.crop(box)                     #截取<br>    im.save(p_path2)                       #保存到本地</p><p>def GetValidateCode(p_path):               #百度识别验证码，根据百度开发文档写<br>    APP_ID = ‘xxxxx’<br>    API_KEY = ‘xxxxxxx’<br>    SECRET_KEY = ‘xxxxxx’<br>    client = AipOcr(APP_ID, API_KEY, SECRET_KEY)<br>    f= open(p_path,’rb’)<br>    img= f.read()<br>    f.close()<br>    a= client.webImage(img)                #返回的是一个json<br>    word= re.search(r’&#39;words&#39;: &#39;(.*?)&#39;‘,str(a))<br>    code=word.group(0).split(‘&#39;‘)<br>    return code[-2]                        #找到验证码并返回</p><p>def PicDelete(p_path1,p_path2):            #删除保存在本地的验证码<br>    os.remove(p_path1)<br>    os.remove(p_path2)</p><p>print(“请确保学号和密码输入正确！！！”)<br>std_num= input(“请输入学号：”)<br>password= input(“请输入密码：”)</p><p>drive= webdriver.Chrome()<br>drive.maximize_window()<br>drive.get(url)<br>time.sleep(3)<br>drive.find_element_by_xpath(“//<em>[@id=’m14’]”).click()<br>drive.switch_to.frame(‘frmHomeShow’)<br>drive.find_element_by_xpath(“//</em>[@id=’txt_asmcdefsddsd’]”).send_keys(str(std_num))</p><p>succes= 0<br>while(succes==0):               #循环，因为百度识别率太低，经常验证码错误，循环到直至成功为止<br>    drive.find_element_by_id(“txt_pewerwedsdfsdff”).send_keys(str(password))<br>    drive.find_element_by_id(“txt_sdertfgsadscxcadsads”).click()<br>    DownValidataCode(p_path1,p_path2)<br>    a= GetValidateCode(p_path2)<br>    print(a)<br>    drive.find_element_by_id(“txt_sdertfgsadscxcadsads”).send_keys(a)<br>    drive.find_element_by_xpath(“//*[@id=’divThePanel’]/tbody/tr/td/table/tbody/tr[5]/td[2]/input[1]”).click()<br>    time.sleep(5)<br>    if drive.current_url != “<a href="http://xk.csust.edu.cn/&quot;" target="_blank" rel="noopener external nofollow noreferrer">http://xk.csust.edu.cn/&quot;</a>:<br>                            #不知道怎么捕捉验证码错误异常，通过网页地址判断是否登陆成功<br>        succes = 1</p><p>time.sleep(3)<br>PicDelete(p_path1,p_path2)<br>os.system(“pause”)<br>#drive.close()</p><p>最后用利用谷歌插件xpath工具提取成绩，即可</p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> python教学 </tag>
+            
+        </tags>
       
     </entry>
     
